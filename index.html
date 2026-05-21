@@ -239,6 +239,7 @@ function renderPodium(data){
     return`<div class="podium-card" style="order:${s.order}">
       <div>${crownSVG(s.crown)}</div>
       <div class="podium-name">${m.name}</div>
+      <div style="margin:2px 0"><span class="badge ${getTierInfo(m.amt).cls}" style="font-size:11px">${getTierInfo(m.amt).label}</span></div>
       <div class="podium-amt">${m.amt.toLocaleString()} บาท</div>
       <div class="podium-block ${s.blockCls}">${s.idx+1}</div>
     </div>`;
