@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>กระดานยศ BewPaKornSHOP</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1a8a3c;--green2:#25b84a;--yellow:#d4e200;--bg:#f5f7f5;--white:#ffffff;--border:#e0e8e0;--text:#1a2e1a;--muted:#6b7f6b;--surface:#ffffff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Sarabun',sans-serif;min-height:100vh}
+
+header{background:var(--white);border-bottom:2px solid var(--border);padding:12px 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.header-inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-img{width:52px;height:52px;object-fit:contain;border-radius:10px}
+.logo-text h1{font-family:'Kanit',sans-serif;font-size:18px;font-weight:800;color:var(--green);line-height:1.1}
+.logo-text p{font-size:12px;color:var(--muted)}
+.month-tag{background:var(--green);color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;font-family:'Kanit',sans-serif;font-weight:500}
+
+.container{max-width:1100px;margin:0 auto;padding:24px 20px}
+
+/* PODIUM */
+.podium-section{background:linear-gradient(135deg,#1a8a3c 0%,#25b84a 50%,#d4e200 100%);border-radius:20px;padding:32px 24px 0;margin-bottom:28px;overflow:hidden;position:relative}
+.podium-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(255,255,255,0.08) 0%,transparent 60%)}
+.podium-title{text-align:center;margin-bottom:24px}
+.podium-title h2{font-family:'Kanit',sans-serif;font-size:26px;font-weight:800;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.podium-title p{color:rgba(255,255,255,0.85);font-size:14px;margin-top:4px}
+.podium-stage{display:flex;align-items:flex-end;justify-content:center;gap:20px}
+.podium-card{display:flex;flex-direction:column;align-items:center;gap:8px}
+.podium-name{font-family:'Kanit',sans-serif;font-weight:700;color:#fff;text-align:center;font-size:15px;text-shadow:0 1px 4px rgba(0,0,0,0.3);max-width:130px;word-break:break-all}
+.podium-amt{color:rgba(255,255,255,0.9);font-size:13px;text-align:center;font-family:'Kanit',sans-serif}
+.podium-block{border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center;font-family:'Kanit',sans-serif;font-weight:800;color:#fff;width:110px}
+.block-1{height:110px;background:rgba(255,215,0,0.35);border:2px solid rgba(255,215,0,0.7);font-size:32px}
+.block-2{height:80px;background:rgba(192,192,192,0.3);border:2px solid rgba(192,192,192,0.6);font-size:26px}
+.block-3{height:60px;background:rgba(205,127,50,0.3);border:2px solid rgba(205,127,50,0.6);font-size:22px}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:1fr 280px;gap:24px;align-items:start}
+@media(max-width:768px){.layout{grid-template-columns:1fr}.podium-block{width:85px}.block-1{height:85px}.block-2{height:65px}.block-3{height:50px}}
+
+/* SEARCH */
+.search-box{display:flex;align-items:center;gap:10px;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:10px 16px;margin-bottom:14px;transition:border-color .2s}
+.search-box:focus-within{border-color:var(--green)}
+.search-box svg{width:16px;height:16px;color:var(--muted);flex-shrink:0}
+.search-box input{background:none;border:none;outline:none;color:var(--text);font-family:'Sarabun',sans-serif;font-size:15px;width:100%}
+.search-box input::placeholder{color:var(--muted)}
+.found-pill{background:#e8f5e9;color:var(--green);padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap;display:none;font-family:'Kanit',sans-serif}
+
+/* BOARD */
+.board{background:var(--white);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.board-head{display:grid;grid-template-columns:52px 1fr 170px 110px;padding:10px 16px;background:#f0f7f0;border-bottom:1.5px solid var(--border);font-size:12px;color:var(--muted);font-family:'Kanit',sans-serif;font-weight:600;letter-spacing:.05em}
+.board-head span:last-child{text-align:right}
+.row{display:grid;grid-template-columns:52px 1fr 170px 110px;padding:12px 16px;border-bottom:1px solid var(--border);align-items:center;transition:background .15s}
+.row:last-child{border-bottom:none}
+.row:hover{background:#f9fdf9}
+.row.highlight{background:#fffde7;border-left:3px solid #f0b429}
+.rank-num{font-family:'Kanit',sans-serif;font-size:14px;color:var(--muted);font-weight:600}
+.member-name{font-size:14px;font-weight:500;color:var(--text)}
+.amount{font-size:13px;color:var(--muted);text-align:right;font-family:'Kanit',sans-serif}
+.no-result{padding:40px;text-align:center;color:var(--muted);font-size:14px;display:none}
+.loading{padding:48px;text-align:center;color:var(--muted)}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:12px;font-family:'Kanit',sans-serif;font-weight:600;white-space:nowrap}
+.t1{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7}
+.t2{background:#e3f2fd;color:#1565c0;border:1px solid #90caf9}
+.t3{border:1px solid transparent;animation:rgb-soft 4s linear infinite}
+.t4{border:1px solid transparent;animation:rgb-soft2 3.5s linear infinite}
+.t5{border:1px solid transparent;animation:rgb-mid 3s linear infinite}
+.t6{border:1px solid transparent;animation:rgb-mid2 2.5s linear infinite}
+.t7{border:1px solid transparent;animation:rgb-strong 2s linear infinite}
+.t8{border:1px solid transparent;animation:rgb-elite 1.5s linear infinite}
+.t9{border:1px solid transparent;animation:rgb-god 1s linear infinite}
+
+@keyframes rgb-soft{
+  0%{background:rgba(255,193,7,0.15);color:#e65100;box-shadow:0 0 6px rgba(255,193,7,0.2)}
+  50%{background:rgba(255,255,255,0.95);color:#e65100}
+  100%{background:rgba(255,193,7,0.15);color:#e65100;box-shadow:0 0 6px rgba(255,193,7,0.2)}
+}
+@keyframes rgb-soft2{
+  0%{background:rgba(33,150,243,0.15);color:#0d47a1;box-shadow:0 0 8px rgba(33,150,243,0.25)}
+  50%{background:rgba(255,255,255,0.95);color:#0d47a1}
+  100%{background:rgba(33,150,243,0.15);color:#0d47a1;box-shadow:0 0 8px rgba(33,150,243,0.25)}
+}
+@keyframes rgb-mid{
+  0%{background:rgba(255,87,34,0.2);color:#bf360c;box-shadow:0 0 10px rgba(255,87,34,0.3)}
+  33%{background:rgba(255,255,255,0.95);color:#bf360c}
+  66%{background:rgba(255,152,0,0.2);color:#bf360c;box-shadow:0 0 10px rgba(255,152,0,0.3)}
+  100%{background:rgba(255,87,34,0.2);color:#bf360c}
+}
+@keyframes rgb-mid2{
+  0%{background:rgba(156,39,176,0.2);color:#4a148c;box-shadow:0 0 12px rgba(156,39,176,0.35)}
+  25%{background:rgba(255,255,255,0.95);color:#4a148c}
+  50%{background:rgba(63,81,181,0.2);color:#4a148c;box-shadow:0 0 12px rgba(63,81,181,0.35)}
+  75%{background:rgba(255,255,255,0.95);color:#4a148c}
+  100%{background:rgba(156,39,176,0.2);color:#4a148c}
+}
+@keyframes rgb-strong{
+  0%{background:rgba(233,30,99,0.25);color:#880e4f;box-shadow:0 0 14px rgba(233,30,99,0.4)}
+  20%{background:rgba(255,255,255,0.95);color:#880e4f}
+  40%{background:rgba(255,193,7,0.25);color:#880e4f;box-shadow:0 0 14px rgba(255,193,7,0.4)}
+  60%{background:rgba(255,255,255,0.95);color:#880e4f}
+  80%{background:rgba(0,188,212,0.25);color:#880e4f;box-shadow:0 0 14px rgba(0,188,212,0.4)}
+  100%{background:rgba(233,30,99,0.25);color:#880e4f}
+}
+@keyframes rgb-elite{
+  0%{background:rgba(255,0,0,0.25);color:#b71c1c;box-shadow:0 0 16px rgba(255,0,0,0.5)}
+  16%{background:rgba(255,165,0,0.25);color:#b71c1c}
+  33%{background:rgba(255,255,255,0.95);color:#b71c1c}
+  50%{background:rgba(0,200,0,0.2);color:#b71c1c;box-shadow:0 0 16px rgba(0,200,0,0.5)}
+  66%{background:rgba(0,150,255,0.25);color:#b71c1c;box-shadow:0 0 16px rgba(0,150,255,0.5)}
+  83%{background:rgba(255,255,255,0.95);color:#b71c1c}
+  100%{background:rgba(255,0,0,0.25);color:#b71c1c}
+}
+@keyframes rgb-god{
+  0%{background:rgba(255,0,0,0.3);color:#4a148c;box-shadow:0 0 20px rgba(255,0,0,0.6)}
+  14%{background:rgba(255,165,0,0.3);color:#4a148c;box-shadow:0 0 20px rgba(255,165,0,0.6)}
+  28%{background:rgba(255,235,0,0.3);color:#4a148c;box-shadow:0 0 20px rgba(255,235,0,0.6)}
+  42%{background:rgba(255,255,255,0.98);color:#4a148c;box-shadow:0 0 24px rgba(255,255,255,0.9)}
+  57%{background:rgba(0,200,255,0.3);color:#4a148c;box-shadow:0 0 20px rgba(0,200,255,0.6)}
+  71%{background:rgba(180,0,255,0.3);color:#4a148c;box-shadow:0 0 20px rgba(180,0,255,0.6)}
+  85%{background:rgba(255,255,255,0.98);color:#4a148c;box-shadow:0 0 24px rgba(255,255,255,0.9)}
+  100%{background:rgba(255,0,0,0.3);color:#4a148c}
+}
+
+/* TIER CARD */
+.tier-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.tier-head{padding:12px 16px;background:#f0f7f0;border-bottom:1.5px solid var(--border);font-family:'Kanit',sans-serif;font-size:13px;font-weight:700;color:var(--green)}
+.tier-row{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--border);font-size:13px}
+.tier-row:last-child{border-bottom:none}
+.tier-range{color:var(--muted);font-size:12px;font-family:'Kanit',sans-serif}
+.update-note{margin-top:14px;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--muted);line-height:1.7}
+.update-note strong{color:var(--green)}
+.error-box{background:#fff3f3;border:1.5px solid #ffcdd2;border-radius:10px;padding:14px;color:#c62828;font-size:13px;margin-bottom:14px;display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img class="logo-img" src="logo.jpg" alt="BewPaKornSHOP">
+      <div class="logo-text">
+        <h1>BewPaKornSHOP</h1>
+        <p>กระดานยศประจำเดือน</p>
+      </div>
+    </div>
+    <div class="month-tag" id="month-tag">กำลังโหลด...</div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="podium-section">
+    <div class="podium-title">
+      <h2>🏆 แรงค์ลูกค้าผู้เติมเงินสูงสุด</h2>
+      <p>จัดลำดับลูกค้าที่เติมเงินสูงสุดของร้าน BewPaKornSHOP</p>
+    </div>
+    <div class="podium-stage" id="podium">
+      <div class="loading"><div class="spinner"></div></div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="left">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="search" placeholder="ค้นหาชื่อสมาชิก..." oninput="doSearch(this.value)">
+        <span class="found-pill" id="found-pill"></span>
+      </div>
+      <div class="error-box" id="error-box">ไม่สามารถโหลดข้อมูลได้ กรุณาตรวจสอบว่า Google Sheets เปิดการเข้าถึงสาธารณะแล้ว</div>
+      <div class="board">
+        <div class="board-head">
+          <span>อันดับ</span><span>ชื่อสมาชิก</span><span>ยศ</span><span style="text-align:right">ยอดเติม</span>
+        </div>
+        <div id="list"><div class="loading"><div class="spinner"></div>กำลังโหลดข้อมูล...</div></div>
+        <div class="no-result" id="no-result">ไม่พบชื่อนี้ในระบบ</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="tier-card">
+        <div class="tier-head">🎖 ตารางยศ</div>
+        <div class="tier-row"><span class="badge t1">🌱 คุณลูกค้า</span><span class="tier-range">1–100 บ.</span></div>
+        <div class="tier-row"><span class="badge t2">⭐ พี่ลูกค้า</span><span class="tier-range">101–500 บ.</span></div>
+        <div class="tier-row"><span class="badge t3">💰 เสี่ย</span><span class="tier-range">501–1,000 บ.</span></div>
+        <div class="tier-row"><span class="badge t4">💎 เสี่ยรายใหญ่</span><span class="tier-range">1,001–5,000 บ.</span></div>
+        <div class="tier-row"><span class="badge t5">🦁 ลูกเจ้าสัว</span><span class="tier-range">5,001–10,000 บ.</span></div>
+        <div class="tier-row"><span class="badge t6">👑 ท่านเจ้าสัว</span><span class="tier-range">10,001–30,000 บ.</span></div>
+        <div class="tier-row"><span class="badge t7">🏆 มหาเศรษฐี</span><span class="tier-range">30,001–50,000 บ.</span></div>
+        <div class="tier-row"><span class="badge t8">🔱 อีลีท</span><span class="tier-range">50,001–100,000 บ.</span></div>
+        <div class="tier-row"><span class="badge t9">⚡ รวยพระเจ้า</span><span class="tier-range">100,001+ บ.</span></div>
+      </div>
+      <div class="update-note">
+        <strong>🔄 อัปเดตเมื่อไหร่?</strong><br>
+        ยอดเติมจะอัปเดตทุก 1-2 วัน
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SHEET_ID='1GeZ_52gYPnFhJfZxR7azH_t4ayBpg7H2PIWcm9Fo8I0';
+const SHEET_NAME='ยอดรวม';
+const URL=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+let allData=[];
+
+function getTierInfo(a){
+  if(a>=100001)return{cls:'t9',label:'⚡ รวยพระเจ้า'};
+  if(a>=50001)return{cls:'t8',label:'🔱 อีลีท'};
+  if(a>=30001)return{cls:'t7',label:'🏆 มหาเศรษฐี'};
+  if(a>=10001)return{cls:'t6',label:'👑 ท่านเจ้าสัว'};
+  if(a>=5001)return{cls:'t5',label:'🦁 ลูกเจ้าสัว'};
+  if(a>=1001)return{cls:'t4',label:'💎 เสี่ยรายใหญ่'};
+  if(a>=501)return{cls:'t3',label:'💰 เสี่ย'};
+  if(a>=101)return{cls:'t2',label:'⭐ พี่ลูกค้า'};
+  return{cls:'t1',label:'🌱 คุณลูกค้า'};
+}
+
+function crownSVG(type){
+  if(type==='gold')return`<svg width="72" height="72" viewBox="0 0 72 72"><defs><radialGradient id="gg" cx="50%" cy="30%"><stop offset="0%" stop-color="#fff9c4"/><stop offset="45%" stop-color="#FFD700"/><stop offset="100%" stop-color="#e65100"/></radialGradient></defs><circle cx="36" cy="36" r="34" fill="#1a1200" stroke="#FFD700" stroke-width="2.5" opacity="0.9"/><polygon points="36,10 20,44 8,28 15,50 57,50 64,28 52,44" fill="url(#gg)" stroke="#e65100" stroke-width="1"/><circle cx="36" cy="10" r="4.5" fill="#fff59d"/><circle cx="8" cy="28" r="4" fill="#fff59d"/><circle cx="64" cy="28" r="4" fill="#fff59d"/><rect x="15" y="48" width="42" height="10" rx="3" fill="url(#gg)" stroke="#e65100" stroke-width="0.8"/><ellipse cx="36" cy="48" rx="7" ry="3.5" fill="#43a047" opacity="0.95"/></svg>`;
+  if(type==='silver')return`<svg width="62" height="62" viewBox="0 0 62 62"><defs><radialGradient id="sg" cx="50%" cy="30%"><stop offset="0%" stop-color="#ffffff"/><stop offset="45%" stop-color="#C0C0C0"/><stop offset="100%" stop-color="#616161"/></radialGradient></defs><circle cx="31" cy="31" r="29" fill="#0d0d14" stroke="#bdbdbd" stroke-width="2" opacity="0.9"/><polygon points="31,10 17,37 7,23 13,43 49,43 55,23 45,37" fill="url(#sg)" stroke="#757575" stroke-width="0.8"/><circle cx="31" cy="10" r="4" fill="#e0e0e0"/><circle cx="7" cy="23" r="3.5" fill="#e0e0e0"/><circle cx="55" cy="23" r="3.5" fill="#e0e0e0"/><rect x="13" y="41" width="36" height="8" rx="2.5" fill="url(#sg)" stroke="#757575" stroke-width="0.7"/><ellipse cx="31" cy="41" rx="6" ry="3" fill="#1565c0" opacity="0.95"/></svg>`;
+  return`<svg width="56" height="56" viewBox="0 0 56 56"><defs><radialGradient id="bg3" cx="50%" cy="30%"><stop offset="0%" stop-color="#ffccbc"/><stop offset="45%" stop-color="#CD7F32"/><stop offset="100%" stop-color="#6d3b00"/></radialGradient></defs><circle cx="28" cy="28" r="26" fill="#1a0800" stroke="#a1660a" stroke-width="2" opacity="0.9"/><polygon points="28,9 16,33 7,20 12,38 44,38 49,20 40,33" fill="url(#bg3)" stroke="#6d3b00" stroke-width="0.8"/><circle cx="28" cy="9" r="3.5" fill="#ffccbc"/><circle cx="7" cy="20" r="3" fill="#ffccbc"/><circle cx="49" cy="20" r="3" fill="#ffccbc"/><rect x="12" y="36" width="32" height="8" rx="2.5" fill="url(#bg3)" stroke="#6d3b00" stroke-width="0.7"/><ellipse cx="28" cy="36" rx="5" ry="2.5" fill="#c62828" opacity="0.95"/></svg>`;
+}
+
+function renderPodium(data){
+  const el=document.getElementById('podium');
+  if(!data.length){el.innerHTML='<p style="color:rgba(255,255,255,0.7);padding:20px">ยังไม่มีข้อมูล</p>';return;}
+  const slots=[
+    {idx:1,crown:'silver',blockCls:'block-2',order:1},
+    {idx:0,crown:'gold',blockCls:'block-1',order:2},
+    {idx:2,crown:'bronze',blockCls:'block-3',order:3},
+  ];
+  el.innerHTML=slots.map(s=>{
+    const m=data[s.idx];
+    if(!m)return'';
+    return`<div class="podium-card" style="order:${s.order}">
+      <div>${crownSVG(s.crown)}</div>
+      <div class="podium-name">${m.name}</div>
+      <div class="podium-amt">${m.amt.toLocaleString()} บาท</div>
+      <div class="podium-block ${s.blockCls}">${s.idx+1}</div>
+    </div>`;
+  }).join('');
+}
+
+function render(data,highlight){
+  const list=document.getElementById('list');
+  const noRes=document.getElementById('no-result');
+  const display=highlight?data:data.slice(3);
+  if(!display.length){list.innerHTML='';noRes.style.display=highlight?'block':'none';return;}
+  noRes.style.display='none';
+  list.innerHTML=display.map(m=>{
+    const idx=allData.findIndex(x=>x.name===m.name);
+    const t=getTierInfo(m.amt);
+    const hi=highlight&&m.name.toLowerCase().includes(highlight.toLowerCase());
+    return`<div class="row${hi?' highlight':''}">
+      <span class="rank-num">${idx+1}</span>
+      <span class="member-name">${m.name}</span>
+      <span><span class="badge ${t.cls}">${t.label}</span></span>
+      <span class="amount">${m.amt.toLocaleString()} บ.</span>
+    </div>`;
+  }).join('');
+}
+
+function doSearch(v){
+  const pill=document.getElementById('found-pill');
+  if(!v.trim()){pill.style.display='none';render(allData,'');return;}
+  const res=allData.filter(m=>m.name.toLowerCase().includes(v.toLowerCase()));
+  pill.style.display='inline-flex';
+  pill.textContent=res.length?`อันดับที่ ${allData.findIndex(x=>x.name===res[0].name)+1}`:'ไม่พบ';
+  render(res,v);
+}
+
+async function loadData(){
+  try{
+    const res=await fetch(URL);
+    const text=await res.text();
+    const json=JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1]);
+    allData=json.table.rows
+      .filter(r=>r.c[1]?.v&&r.c[2]?.v)
+      .map(r=>({name:String(r.c[1].v).trim(),amt:Math.round(r.c[2].v)}))
+      .filter(m=>m.name&&m.amt>0)
+      .sort((a,b)=>b.amt-a.amt);
+    const now=new Date();
+    document.getElementById('month-tag').textContent=now.toLocaleDateString('th-TH',{month:'long',year:'numeric'});
+    renderPodium(allData);
+    render(allData,'');
+  }catch(e){
+    document.getElementById('list').innerHTML='';
+    document.getElementById('podium').innerHTML='<p style="color:rgba(255,255,255,0.7);padding:20px">โหลดข้อมูลไม่ได้</p>';
+    document.getElementById('error-box').style.display='block';
+  }
+}
+loadData();
+</script>
+</body>
+</html>
