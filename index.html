@@ -262,9 +262,11 @@ function render(data,highlight){
   noRes.style.display='none';
   list.innerHTML=display.map(m=>{
     const idx=allData.findIndex(x=>x.name===m.name);
+    const rankNum = idx + 1;
     const t=getTierInfo(m.amt);
     const hi=highlight&&m.name.toLowerCase().includes(highlight.toLowerCase());
-    return`<div class="row${hi?' highlight':''}">
+    const rowColor = rankNum >= 4 && rankNum <= 10 ? ' style="background:#fff3e0"' : rankNum >= 11 && rankNum <= 20 ? ' style="background:#e3f2fd"' : '';
+    return`<div class="row${hi?' highlight':''}"${rowColor}>
       <span class="rank-num">${idx+1}</span>
       <span class="member-name">${m.name}</span>
       <span><span class="badge ${t.cls}">${t.label}</span></span>
