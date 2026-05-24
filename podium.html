@@ -82,7 +82,7 @@ function makeBolt(b){
     x=nx;y=ny;
   }
 }
-for(var i=0;i<6;i++){
+for(var i=0;i<3;i++){
   var b=newBolt();
   makeBolt(b);
   bolts.push(b);
@@ -113,7 +113,7 @@ function draw(){
       ctx.moveTo(s.x1,s.y1);
       ctx.lineTo(s.x2,s.y2);
       ctx.strokeStyle='rgba(0,255,80,'+alpha+')';
-      ctx.lineWidth=4.5;
+      ctx.lineWidth=1.5;
       ctx.shadowColor='#00ff50';
       ctx.shadowBlur=8;
       ctx.stroke();
