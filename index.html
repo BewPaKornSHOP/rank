@@ -545,33 +545,53 @@ header {
 }
 
 .t4 {
-  border: 1px solid transparent;
-  animation: light-rgb-cyan 3.5s linear infinite;
+  background: linear-gradient(135deg, #06b6d4, #22d3ee, #06b6d4);
+  background-size: 200% auto;
+  color: #ffffff;
+  border: none;
+  animation: shiny-cyan 3s linear infinite;
 }
 
 .t5 {
-  border: 1px solid transparent;
-  animation: light-rgb-orange 3s linear infinite;
+  background: linear-gradient(135deg, #f97316, #fdba74, #f97316);
+  background-size: 200% auto;
+  color: #ffffff;
+  border: none;
+  animation: shiny-orange 2.8s linear infinite;
 }
 
 .t6 {
-  border: 1px solid transparent;
-  animation: light-rgb-purple 2.5s linear infinite;
+  background: linear-gradient(135deg, #6366f1, #c084fc, #6366f1);
+  background-size: 200% auto;
+  color: #ffffff;
+  border: none;
+  animation: shiny-purple 2.5s linear infinite;
 }
 
 .t7 {
-  border: 1px solid transparent;
-  animation: light-rgb-pink 2s linear infinite;
+  background: linear-gradient(135deg, #ec4899, #fbcfe8, #ec4899);
+  background-size: 200% auto;
+  color: #ffffff;
+  border: none;
+  animation: shiny-pink 2.2s linear infinite;
 }
 
 .t8 {
-  border: 1px solid transparent;
-  animation: light-rgb-red 1.5s linear infinite;
+  background: linear-gradient(135deg, #dc2626, #f43f5e, #dc2626);
+  background-size: 200% auto;
+  color: #ffffff;
+  border: none;
+  animation: shiny-red 1.8s linear infinite;
 }
 
 .t9 {
-  border: 1px solid transparent;
-  animation: light-rgb-rainbow 1.2s linear infinite;
+  background: linear-gradient(135deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
+  background-size: 200% auto;
+  color: #ffffff;
+  font-weight: 800;
+  border: none;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  animation: shiny-rainbow 1.2s linear infinite;
 }
 
 /* SMOOTH PASTEL GRADIENT ANIMATIONS FOR LIGHT THEME BADGES */
@@ -595,24 +615,40 @@ header {
   50% { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
 }
 
-@keyframes light-rgb-pink {
-  0%, 100% { background: #fdf2f8; color: #be185d; border-color: #fce7f3; box-shadow: 0 2px 4px rgba(236, 72, 153, 0.15); }
-  33% { background: #fff7ed; color: #ea580c; border-color: #fed7aa; }
-  66% { background: #ecfeff; color: #0891b2; border-color: #a5f3fc; }
+@keyframes shiny-cyan {
+  0% { background-position: 0% 50%; box-shadow: 0 2px 10px rgba(6, 182, 212, 0.4); }
+  50% { background-position: 100% 50%; box-shadow: 0 4px 18px rgba(6, 182, 212, 0.75); }
+  100% { background-position: 0% 50%; box-shadow: 0 2px 10px rgba(6, 182, 212, 0.4); }
 }
 
-@keyframes light-rgb-red {
-  0%, 100% { background: #fef2f2; color: #b91c1c; border-color: #fecaca; box-shadow: 0 2px 4px rgba(239, 68, 68, 0.15); }
-  33% { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
-  66% { background: #faf5ff; color: #7e22ce; border-color: #e9d5ff; }
+@keyframes shiny-orange {
+  0% { background-position: 0% 50%; box-shadow: 0 2px 12px rgba(249, 115, 22, 0.45); }
+  50% { background-position: 100% 50%; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.8); }
+  100% { background-position: 0% 50%; box-shadow: 0 2px 12px rgba(249, 115, 22, 0.45); }
 }
 
-@keyframes light-rgb-rainbow {
-  0%, 100% { background: #fef2f2; color: #b91c1c; border-color: #fecaca; box-shadow: 0 2px 6px rgba(239, 68, 68, 0.2); }
-  20% { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
-  40% { background: #fef3c7; color: #b45309; border-color: #fde047; }
-  60% { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
-  80% { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+@keyframes shiny-purple {
+  0% { background-position: 0% 50%; box-shadow: 0 2px 14px rgba(168, 85, 247, 0.5); }
+  50% { background-position: 100% 50%; box-shadow: 0 5px 22px rgba(168, 85, 247, 0.85); }
+  100% { background-position: 0% 50%; box-shadow: 0 2px 14px rgba(168, 85, 247, 0.5); }
+}
+
+@keyframes shiny-pink {
+  0% { background-position: 0% 50%; box-shadow: 0 2px 16px rgba(236, 72, 153, 0.55); }
+  50% { background-position: 100% 50%; box-shadow: 0 5px 24px rgba(236, 72, 153, 0.9); }
+  100% { background-position: 0% 50%; box-shadow: 0 2px 16px rgba(236, 72, 153, 0.55); }
+}
+
+@keyframes shiny-red {
+  0% { background-position: 0% 50%; box-shadow: 0 2px 18px rgba(239, 68, 68, 0.6); }
+  50% { background-position: 100% 50%; box-shadow: 0 6px 28px rgba(239, 68, 68, 0.95); }
+  100% { background-position: 0% 50%; box-shadow: 0 2px 18px rgba(239, 68, 68, 0.6); }
+}
+
+@keyframes shiny-rainbow {
+  0% { background-position: 0% 50%; box-shadow: 0 3px 22px rgba(127, 0, 255, 0.7); }
+  50% { background-position: 100% 50%; box-shadow: 0 6px 32px rgba(0, 240, 255, 0.95); }
+  100% { background-position: 0% 50%; box-shadow: 0 3px 22px rgba(127, 0, 255, 0.7); }
 }
 
 /* SIDE BAR (RIGHT) */
