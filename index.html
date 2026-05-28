@@ -4,19 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>กระดานยศ BewPaKornSHOP</title>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --green-neon: #84cc16;
-  --green-neon-glow: rgba(132, 204, 22, 0.35);
-  --green-emerald: #10b981;
-  --bg-dark: #050806;
-  --bg-gradient: radial-gradient(circle at top, #0c2013 0%, #050806 100%);
-  --surface-glass: rgba(12, 22, 16, 0.65);
-  --border-glass: rgba(255, 255, 255, 0.07);
-  --text-bright: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-neon: #a3e635;
+  --primary-mint: #00E676;
+  --primary-mint-hover: #00C853;
+  --primary-mint-light: #e8fdf3;
+  --primary-emerald: #10B981;
+  --text-dark: #0f172a;
+  --text-medium: #334155;
+  --text-muted: #64748b;
+  --bg-main: #f8fafc;
+  --bg-gradient: linear-gradient(180deg, #f0fdf4 0%, #f8fafc 100%);
+  --surface-card: #ffffff;
+  --border-color: #e2e8f0;
+  
+  /* Ranking Row Colors */
+  --gold-glow: #eab308;
+  --silver-glow: #94a3b8;
+  --bronze-glow: #ea580c;
 }
 
 * {
@@ -26,37 +32,36 @@
 }
 
 body {
-  background: var(--bg-dark);
+  background: var(--bg-main);
   background-image: var(--bg-gradient);
   background-attachment: fixed;
-  color: var(--text-bright);
+  color: var(--text-dark);
   font-family: 'Sarabun', sans-serif;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Background Cyber Grid lines for Premium feel */
+/* Subtle decorative game grid in the background */
 body::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(132, 204, 22, 0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(132, 204, 22, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: -1;
+  background-image: linear-gradient(rgba(0, 230, 118, 0.015) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 230, 118, 0.015) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -2;
   pointer-events: none;
 }
 
 header {
-  background: rgba(5, 8, 6, 0.75);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(132, 204, 22, 0.15);
-  padding: 14px 0;
+  background: #ffffff;
+  border-bottom: 2px solid var(--border-color);
+  padding: 12px 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 .header-inner {
@@ -72,160 +77,161 @@ header {
 .logo-wrap {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .logo-container {
   position: relative;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
   padding: 2px;
-  background: linear-gradient(135deg, var(--green-neon), var(--green-emerald));
-  box-shadow: 0 0 15px var(--green-neon-glow);
+  background: linear-gradient(135deg, var(--primary-mint), var(--primary-emerald));
+  box-shadow: 0 4px 10px rgba(0, 230, 118, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .logo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  background: #000;
+  border-radius: 10px;
+  background: #fff;
 }
 
 .logo-text h1 {
   font-family: 'Kanit', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
-  color: var(--text-bright);
+  color: var(--text-dark);
   line-height: 1.1;
-  letter-spacing: 0.5px;
-  text-shadow: 0 0 10px rgba(132, 204, 22, 0.3);
 }
 
 .logo-text h1 span {
-  color: var(--green-neon);
+  color: var(--primary-mint-hover);
 }
 
 .logo-text p {
   font-size: 12px;
   color: var(--text-muted);
-  font-weight: 300;
-  margin-top: 2px;
+  font-weight: 400;
+  margin-top: 1px;
 }
 
 .month-tag {
-  background: rgba(132, 204, 22, 0.08);
-  color: var(--green-neon);
+  background: var(--primary-mint-light);
+  color: var(--primary-emerald);
   padding: 8px 18px;
   border-radius: 30px;
   font-size: 14px;
   font-family: 'Kanit', sans-serif;
   font-weight: 600;
-  border: 1px solid rgba(132, 204, 22, 0.4);
-  box-shadow: inset 0 0 8px rgba(132, 204, 22, 0.05), 0 0 10px rgba(132, 204, 22, 0.1);
+  border: 1px solid rgba(0, 230, 118, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 230, 118, 0.05);
 }
 
 .back-btn {
-  background: transparent;
-  color: var(--text-bright);
+  background: #ffffff;
+  color: var(--text-medium);
   padding: 8px 18px;
   border-radius: 30px;
   font-size: 14px;
   font-family: 'Kanit', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
   display: flex;
   align-items: center;
   gap: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .back-btn:hover {
-  background: var(--green-neon);
-  color: #050806;
-  border-color: var(--green-neon);
-  box-shadow: 0 0 15px var(--green-neon-glow);
-  transform: translateY(-2px);
+  background: var(--primary-mint);
+  color: #ffffff;
+  border-color: var(--primary-mint);
+  box-shadow: 0 4px 10px rgba(0, 230, 118, 0.2);
+  transform: translateY(-1px);
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 32px 20px 60px;
+  padding: 24px 20px 50px;
 }
 
 /* PODIUM SECTION */
 .podium-section {
-  background: linear-gradient(180deg, rgba(12, 28, 18, 0.8) 0%, rgba(5, 8, 6, 0.95) 100%);
-  border: 1px solid rgba(132, 204, 22, 0.2);
-  border-radius: 24px;
-  padding: 40px 24px 0;
-  margin-bottom: 32px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #00acc1 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 35px 20px 0;
+  margin-bottom: 28px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(132, 204, 22, 0.05);
+  box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15), 0 5px 15px rgba(0, 0, 0, 0.03);
 }
 
-/* Cyber grid accent overlay on podium */
+/* Subtle Roblox & gaming geometric elements */
 .podium-section::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at center, rgba(132, 204, 22, 0.08) 0%, transparent 70%);
+  background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
   z-index: 0;
   pointer-events: none;
 }
 
 .podium-title {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
   position: relative;
   z-index: 1;
 }
 
 .podium-title h2 {
   font-family: 'Kanit', sans-serif;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 800;
-  color: var(--text-bright);
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   letter-spacing: 0.5px;
 }
 
 .podium-title h2 span {
-  color: var(--green-neon);
-  text-shadow: 0 0 15px var(--green-neon-glow);
+  color: #fffb00;
+  text-shadow: 0 2px 8px rgba(255, 251, 0, 0.3);
 }
 
 .podium-title p {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
-  margin-top: 6px;
-  font-weight: 300;
+  margin-top: 4px;
+  font-weight: 400;
 }
 
 .podium-stage {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
   position: relative;
   z-index: 1;
-  margin-bottom: -4px; /* Align to the very bottom */
+  margin-bottom: -1px;
 }
 
 .podium-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .podium-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
 .podium-crown-wrap {
@@ -233,97 +239,75 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
 }
 
 .podium-name {
   font-family: 'Kanit', sans-serif;
   font-weight: 700;
-  color: var(--text-bright);
+  color: #ffffff;
   text-align: center;
-  font-size: 16px;
-  max-width: 140px;
+  font-size: 15px;
+  max-width: 130px;
   word-break: break-all;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .podium-amt {
-  color: var(--green-neon);
-  font-size: 14px;
-  font-weight: 600;
+  color: #fffb00;
+  font-size: 13px;
+  font-weight: 700;
   text-align: center;
   font-family: 'Outfit', 'Kanit', sans-serif;
-  text-shadow: 0 0 8px rgba(132, 204, 22, 0.2);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 10px;
+  border-radius: 12px;
 }
 
 .podium-block {
-  border-radius: 16px 16px 0 0;
+  border-radius: 12px 12px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Outfit', 'Kanit', sans-serif;
-  font-weight: 900;
-  color: #fff;
-  width: 120px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.95);
+  width: 110px;
   position: relative;
-  box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.1);
-}
-
-.podium-block::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 16px 16px 0 0;
-  pointer-events: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: none;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.15);
 }
 
 .block-1 {
-  height: 130px;
-  background: linear-gradient(180deg, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.05) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.6);
-  border-bottom: none;
-  font-size: 40px;
-  color: #fbbf24;
-  text-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
-}
-
-.block-1::after {
-  border-top: 2px solid #fbbf24;
+  height: 120px;
+  font-size: 36px;
+  border-top: 3px solid #fbbf24;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.08) 100%);
 }
 
 .block-2 {
-  height: 95px;
-  background: linear-gradient(180deg, rgba(148, 163, 184, 0.2) 0%, rgba(148, 163, 184, 0.03) 100%);
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  border-bottom: none;
-  font-size: 32px;
-  color: #cbd5e1;
-  text-shadow: 0 0 12px rgba(148, 163, 184, 0.5);
-}
-
-.block-2::after {
-  border-top: 2px solid #cbd5e1;
+  height: 90px;
+  font-size: 28px;
+  border-top: 3px solid #e2e8f0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
 }
 
 .block-3 {
-  height: 75px;
-  background: linear-gradient(180deg, rgba(180, 83, 9, 0.2) 0%, rgba(180, 83, 9, 0.03) 100%);
-  border: 1px solid rgba(180, 83, 9, 0.5);
-  border-bottom: none;
-  font-size: 26px;
-  color: #f97316;
-  text-shadow: 0 0 10px rgba(180, 83, 9, 0.4);
-}
-
-.block-3::after {
-  border-top: 2px solid #f97316;
+  height: 70px;
+  font-size: 24px;
+  border-top: 3px solid #f97316;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 /* LAYOUT */
 .layout {
   display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 28px;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
   align-items: start;
 }
 
@@ -335,13 +319,13 @@ header {
     gap: 12px;
   }
   .podium-block {
-    width: 90px;
+    width: 85px;
   }
-  .block-1 { height: 100px; font-size: 32px; }
-  .block-2 { height: 75px; font-size: 26px; }
-  .block-3 { height: 60px; font-size: 22px; }
+  .block-1 { height: 95px; font-size: 30px; }
+  .block-2 { height: 75px; font-size: 24px; }
+  .block-3 { height: 60px; font-size: 20px; }
   .podium-title h2 {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
@@ -349,39 +333,39 @@ header {
 .search-box {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: var(--surface-glass);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 12px 20px;
-  margin-bottom: 18px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  gap: 10px;
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
 }
 
 .search-box:focus-within {
-  border-color: var(--green-neon);
-  box-shadow: 0 0 20px rgba(132, 204, 22, 0.25);
-  background: rgba(12, 26, 17, 0.85);
+  border-color: var(--primary-mint-hover);
+  box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.12);
+  background: #ffffff;
 }
 
 .search-box svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   color: var(--text-muted);
   flex-shrink: 0;
-  transition: color 0.3s;
+  transition: color 0.25s;
 }
 
 .search-box:focus-within svg {
-  color: var(--green-neon);
+  color: var(--primary-emerald);
 }
 
 .search-box input {
   background: none;
   border: none;
   outline: none;
-  color: var(--text-bright);
+  color: var(--text-dark);
   font-family: 'Sarabun', sans-serif;
   font-size: 15px;
   width: 100%;
@@ -392,55 +376,52 @@ header {
 }
 
 .found-pill {
-  background: rgba(132, 204, 22, 0.15);
-  color: var(--green-neon);
-  padding: 4px 12px;
+  background: var(--primary-mint-light);
+  color: var(--primary-emerald);
+  padding: 3px 10px;
   border-radius: 20px;
   font-size: 12px;
   white-space: nowrap;
   display: none;
   font-family: 'Kanit', sans-serif;
   font-weight: 600;
-  border: 1px solid rgba(132, 204, 22, 0.3);
-  box-shadow: 0 0 10px rgba(132, 204, 22, 0.1);
+  border: 1px solid rgba(0, 230, 118, 0.2);
 }
 
 /* ERROR BOX */
 .error-box {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  border-radius: 12px;
-  padding: 16px;
-  color: #f87171;
-  font-size: 14px;
-  margin-bottom: 18px;
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  border-radius: 10px;
+  padding: 14px;
+  color: #ef4444;
+  font-size: 13px;
+  margin-bottom: 14px;
   display: none;
   line-height: 1.5;
-  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.1);
+  box-shadow: 0 4px 6px rgba(239, 68, 68, 0.02);
 }
 
 /* LEADERBOARD BOARD */
 .board {
-  background: var(--surface-glass);
-  border: 1px solid var(--border-glass);
-  border-radius: 20px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
 }
 
 .board-head {
   display: grid;
-  grid-template-columns: 70px 1fr 180px 130px;
-  padding: 14px 20px;
-  background: rgba(132, 204, 22, 0.05);
-  border-bottom: 1px solid rgba(132, 204, 22, 0.15);
+  grid-template-columns: 60px 1fr 160px 110px;
+  padding: 12px 18px;
+  background: #f8fafc;
+  border-bottom: 1.5px solid var(--border-color);
   font-size: 13px;
   color: var(--text-muted);
   font-family: 'Kanit', sans-serif;
   font-weight: 600;
-  letter-spacing: .05em;
-  text-transform: uppercase;
+  letter-spacing: .02em;
 }
 
 .board-head span:last-child {
@@ -449,12 +430,12 @@ header {
 
 .row {
   display: grid;
-  grid-template-columns: 70px 1fr 180px 130px;
-  padding: 16px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  grid-template-columns: 60px 1fr 160px 110px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-color);
   align-items: center;
   transition: all 0.2s ease;
-  background: rgba(255, 255, 255, 0.01);
+  background: #ffffff;
 }
 
 .row:last-child {
@@ -462,50 +443,49 @@ header {
 }
 
 .row:hover {
-  background: rgba(132, 204, 22, 0.04);
-  transform: scale(1.005);
+  background: var(--primary-mint-light);
+  transform: scale(1.002);
 }
 
 .row.highlight {
-  background: rgba(234, 179, 8, 0.08) !important;
-  border-left: 4px solid #eab308;
-  box-shadow: inset 4px 0 15px rgba(234, 179, 8, 0.05);
+  background: #fffbeb !important;
+  border-left: 4px solid #f59e0b;
+  box-shadow: inset 4px 0 10px rgba(245, 158, 11, 0.03);
 }
 
 .rank-num {
   font-family: 'Outfit', 'Kanit', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-muted);
   font-weight: 700;
 }
 
 .row.rank-4-10 {
-  background: rgba(245, 158, 11, 0.03);
-  border-left: 2px solid rgba(245, 158, 11, 0.3);
+  background: #fffbeb;
+  border-left: 3px solid rgba(245, 158, 11, 0.4);
 }
 
 .row.rank-11-20 {
-  background: rgba(59, 130, 246, 0.02);
-  border-left: 2px solid rgba(59, 130, 246, 0.25);
+  background: #f0f9ff;
+  border-left: 3px solid rgba(59, 130, 246, 0.3);
 }
 
 .member-name {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--text-bright);
+  color: var(--text-dark);
 }
 
 .amount {
   font-size: 14px;
-  color: var(--green-neon);
-  font-weight: 600;
+  color: var(--text-medium);
+  font-weight: 700;
   text-align: right;
   font-family: 'Outfit', 'Kanit', sans-serif;
-  text-shadow: 0 0 5px rgba(132, 204, 22, 0.1);
 }
 
 .no-result {
-  padding: 60px 40px;
+  padding: 50px 30px;
   text-align: center;
   color: var(--text-muted);
   font-size: 14px;
@@ -513,21 +493,20 @@ header {
 }
 
 .loading {
-  padding: 60px;
+  padding: 50px;
   text-align: center;
   color: var(--text-muted);
   font-family: 'Kanit', sans-serif;
 }
 
 .spinner {
-  width: 36px;
-  height: 36px;
-  border: 3px solid rgba(255, 255, 255, 0.05);
-  border-top-color: var(--green-neon);
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f1f5f9;
+  border-top-color: var(--primary-mint);
   border-radius: 50%;
-  animation: spin 0.8s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite;
-  margin: 0 auto 16px;
-  box-shadow: 0 0 10px rgba(132, 204, 22, 0.15);
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 12px;
 }
 
 @keyframes spin {
@@ -539,123 +518,120 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 4px 12px;
-  border-radius: 20px;
+  padding: 4px 10px;
+  border-radius: 12px;
   font-size: 11px;
   font-family: 'Kanit', sans-serif;
   font-weight: 700;
   white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .t1 {
-  background: rgba(148, 163, 184, 0.1);
-  color: #cbd5e1;
-  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
 }
 
 .t2 {
-  background: rgba(59, 130, 246, 0.12);
-  color: #60a5fa;
-  border: 1px solid rgba(59, 130, 246, 0.35);
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
 }
 
 .t3 {
   border: 1px solid transparent;
-  animation: rgb-soft 4s linear infinite;
+  animation: light-rgb-gold 4s linear infinite;
 }
 
 .t4 {
   border: 1px solid transparent;
-  animation: rgb-soft2 3.5s linear infinite;
+  animation: light-rgb-cyan 3.5s linear infinite;
 }
 
 .t5 {
   border: 1px solid transparent;
-  animation: rgb-mid 3s linear infinite;
+  animation: light-rgb-orange 3s linear infinite;
 }
 
 .t6 {
   border: 1px solid transparent;
-  animation: rgb-mid2 2.5s linear infinite;
+  animation: light-rgb-purple 2.5s linear infinite;
 }
 
 .t7 {
   border: 1px solid transparent;
-  animation: rgb-strong 2s linear infinite;
+  animation: light-rgb-pink 2s linear infinite;
 }
 
 .t8 {
   border: 1px solid transparent;
-  animation: rgb-elite 1.5s linear infinite;
+  animation: light-rgb-red 1.5s linear infinite;
 }
 
 .t9 {
   border: 1px solid transparent;
-  animation: rgb-god 1s linear infinite;
+  animation: light-rgb-rainbow 1.2s linear infinite;
 }
 
-/* SMOOTH GPU-FRIENDLY BADGES ANIMATIONS */
-@keyframes rgb-soft {
-  0%, 100% { background: rgba(234, 179, 8, 0.15); color: #facc15; border-color: rgba(234, 179, 8, 0.4); box-shadow: 0 0 10px rgba(234, 179, 8, 0.2); }
-  50% { background: rgba(253, 224, 71, 0.25); color: #fef08a; border-color: rgba(253, 224, 71, 0.5); }
+/* SMOOTH PASTEL GRADIENT ANIMATIONS FOR LIGHT THEME BADGES */
+@keyframes light-rgb-gold {
+  0%, 100% { background: #fef3c7; color: #b45309; border-color: #fde047; box-shadow: 0 2px 4px rgba(251, 191, 36, 0.1); }
+  50% { background: #fef08a; color: #a16207; border-color: #fef08a; }
 }
 
-@keyframes rgb-soft2 {
-  0%, 100% { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 0 12px rgba(6, 182, 212, 0.2); }
-  50% { background: rgba(34, 211, 238, 0.25); color: #cffafe; border-color: rgba(34, 211, 238, 0.5); }
+@keyframes light-rgb-cyan {
+  0%, 100% { background: #ecfeff; color: #0891b2; border-color: #a5f3fc; box-shadow: 0 2px 4px rgba(34, 211, 238, 0.1); }
+  50% { background: #cffafe; color: #0e7490; border-color: #67e8f9; }
 }
 
-@keyframes rgb-mid {
-  0%, 100% { background: rgba(249, 115, 22, 0.18); color: #fb923c; border-color: rgba(249, 115, 22, 0.45); box-shadow: 0 0 14px rgba(249, 115, 22, 0.25); }
-  50% { background: rgba(251, 146, 60, 0.28); color: #ffedd5; border-color: rgba(251, 146, 60, 0.55); }
+@keyframes light-rgb-orange {
+  0%, 100% { background: #fff7ed; color: #c2410c; border-color: #ffedd5; box-shadow: 0 2px 4px rgba(251, 146, 60, 0.1); }
+  50% { background: #ffedd5; color: #ea580c; border-color: #fed7aa; }
 }
 
-@keyframes rgb-mid2 {
-  0%, 100% { background: rgba(168, 85, 247, 0.2); color: #c084fc; border-color: rgba(168, 85, 247, 0.5); box-shadow: 0 0 16px rgba(168, 85, 247, 0.3); }
-  50% { background: rgba(99, 102, 241, 0.2); color: #818cf8; border-color: rgba(99, 102, 241, 0.5); }
+@keyframes light-rgb-purple {
+  0%, 100% { background: #faf5ff; color: #7e22ce; border-color: #f3e8ff; box-shadow: 0 2px 4px rgba(168, 85, 247, 0.1); }
+  50% { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
 }
 
-@keyframes rgb-strong {
-  0%, 100% { background: rgba(236, 72, 153, 0.22); color: #f472b6; border-color: rgba(236, 72, 153, 0.55); box-shadow: 0 0 18px rgba(236, 72, 153, 0.35); }
-  33% { background: rgba(234, 179, 8, 0.22); color: #facc15; border-color: rgba(234, 179, 8, 0.55); }
-  66% { background: rgba(6, 182, 212, 0.22); color: #22d3ee; border-color: rgba(6, 182, 212, 0.55); }
+@keyframes light-rgb-pink {
+  0%, 100% { background: #fdf2f8; color: #be185d; border-color: #fce7f3; box-shadow: 0 2px 4px rgba(236, 72, 153, 0.15); }
+  33% { background: #fff7ed; color: #ea580c; border-color: #fed7aa; }
+  66% { background: #ecfeff; color: #0891b2; border-color: #a5f3fc; }
 }
 
-@keyframes rgb-elite {
-  0%, 100% { background: rgba(239, 68, 68, 0.25); color: #f87171; border-color: rgba(239, 68, 68, 0.6); box-shadow: 0 0 22px rgba(239, 68, 68, 0.45); }
-  33% { background: rgba(249, 115, 22, 0.25); color: #fb923c; border-color: rgba(249, 115, 22, 0.6); }
-  66% { background: rgba(168, 85, 247, 0.25); color: #c084fc; border-color: rgba(168, 85, 247, 0.6); }
+@keyframes light-rgb-red {
+  0%, 100% { background: #fef2f2; color: #b91c1c; border-color: #fecaca; box-shadow: 0 2px 4px rgba(239, 68, 68, 0.15); }
+  33% { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+  66% { background: #faf5ff; color: #7e22ce; border-color: #e9d5ff; }
 }
 
-@keyframes rgb-god {
-  0%, 100% { background: rgba(239, 68, 68, 0.3); color: #f87171; border-color: rgba(239, 68, 68, 0.7); box-shadow: 0 0 25px rgba(239, 68, 68, 0.55); }
-  20% { background: rgba(249, 115, 22, 0.3); color: #fb923c; border-color: rgba(249, 115, 22, 0.7); }
-  40% { background: rgba(234, 179, 8, 0.3); color: #facc15; border-color: rgba(234, 179, 8, 0.7); }
-  60% { background: rgba(34, 197, 94, 0.3); color: #4ade80; border-color: rgba(34, 197, 94, 0.7); }
-  80% { background: rgba(168, 85, 247, 0.3); color: #c084fc; border-color: rgba(168, 85, 247, 0.7); }
+@keyframes light-rgb-rainbow {
+  0%, 100% { background: #fef2f2; color: #b91c1c; border-color: #fecaca; box-shadow: 0 2px 6px rgba(239, 68, 68, 0.2); }
+  20% { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+  40% { background: #fef3c7; color: #b45309; border-color: #fde047; }
+  60% { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+  80% { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
 }
 
 /* SIDE BAR (RIGHT) */
 .tier-card {
-  background: var(--surface-glass);
-  border: 1px solid var(--border-glass);
-  border-radius: 20px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
 }
 
 .tier-head {
-  padding: 14px 20px;
-  background: rgba(132, 204, 22, 0.05);
-  border-bottom: 1px solid rgba(132, 204, 22, 0.15);
+  padding: 12px 18px;
+  background: #f8fafc;
+  border-bottom: 1.5px solid var(--border-color);
   font-family: 'Kanit', sans-serif;
   font-size: 14px;
   font-weight: 700;
-  color: var(--green-neon);
+  color: var(--text-dark);
   letter-spacing: 0.5px;
 }
 
@@ -663,14 +639,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-color);
   font-size: 13px;
   transition: background 0.2s;
 }
 
 .tier-row:hover {
-  background: rgba(255, 255, 255, 0.01);
+  background: #f8fafc;
 }
 
 .tier-row:last-child {
@@ -681,29 +657,29 @@ header {
   color: var(--text-muted);
   font-size: 12px;
   font-family: 'Outfit', 'Kanit', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .update-note {
-  margin-top: 18px;
-  background: var(--surface-glass);
-  border: 1px solid var(--border-glass);
-  border-radius: 16px;
-  padding: 14px 18px;
+  margin-top: 14px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 16px;
   font-size: 12px;
   color: var(--text-muted);
   line-height: 1.7;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
 }
 
 .update-note strong {
-  color: var(--green-neon);
+  color: var(--primary-emerald);
   font-family: 'Kanit', sans-serif;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 </style>
 </head>
@@ -720,7 +696,7 @@ header {
         <p>กระดานยศลูกค้าประจำเดือน</p>
       </div>
     </div>
-    <div style="display: flex; align-items: center; gap: 12px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
       <div class="month-tag" id="month-tag">กำลังโหลด...</div>
       <a href="https://bewpakorn.rdcw.xyz/" class="back-btn" target="_self">🏠 เว็บหลัก</a>
     </div>
@@ -731,7 +707,7 @@ header {
   <!-- PODIUM SECTION -->
   <div class="podium-section">
     <div class="podium-title">
-      <h2>🏆 อันดับลูกค้ายอดเติมเงิน <span>TOP 3</span></h2>
+      <h2>🏆 อันดับลูกค้าผู้สะสมยอดเติมเงิน <span>TOP 3</span></h2>
       <p>จัดอันดับสมาชิกลูกค้าที่ร่วมสมทบและสนับสนุนร้านประจำเดือนนี้</p>
     </div>
     <div class="podium-stage" id="podium">
@@ -744,32 +720,32 @@ header {
     <div class="left">
       <div class="search-box">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="search" placeholder="ค้นหาชื่อสมาชิกของคุณ..." oninput="doSearch(this.value)">
+        <input type="text" id="search" placeholder="ค้นหาชื่อสมาชิกของคุณเพื่อตรวจสอบอันดับ..." oninput="doSearch(this.value)">
         <span class="found-pill" id="found-pill"></span>
       </div>
 
       <div class="error-box" id="error-box">
-        ⚠️ <strong>พบข้อผิดพลาดในการโหลดข้อมูล:</strong><br>
-        กรุณาตรวจสอบว่า Google Sheets ตั้งค่าการเข้าถึงเป็นสาธารณะ (เปิดแชร์ให้ทุกคนที่มีลิงก์เข้าดูได้)
+        ⚠️ <strong>ไม่สามารถเชื่อมต่อข้อมูลได้:</strong><br>
+        กรุณาตรวจสอบว่า Google Sheets ตั้งค่าการเข้าถึงให้เป็นสาธารณะ (แชร์เป็นลิงก์เข้าดูได้สาธารณะ)
       </div>
 
       <div class="board">
         <div class="board-head">
-          <span>อันดับ</span><span>ชื่อสมาชิก</span><span>ยศประจำระดับ</span><span style="text-align:right">ยอดสะสม</span>
+          <span>อันดับ</span><span>ชื่อสมาชิก</span><span>ยศประจำระดับ</span><span style="text-align:right">ยอดเติมรวม</span>
         </div>
         <div id="list">
           <div class="loading">
-            <div class="spinner"></div>กำลังโหลดฐานข้อมูล...
+            <div class="spinner"></div>กำลังโหลดอันดับผู้เล่น...
           </div>
         </div>
-        <div class="no-result" id="no-result">❌ ไม่พบชื่อสมาชิกนี้ในระบบการสะสมยอด</div>
+        <div class="no-result" id="no-result">❌ ไม่พบชื่อสมาชิกนี้ในระบบยอดรวม</div>
       </div>
     </div>
 
     <!-- RIGHT SIDE: TIER INFO & STATS -->
     <div class="right">
       <div class="tier-card">
-        <div class="tier-head">🎖️ ระดับยศตามยอดการสะสม</div>
+        <div class="tier-head">🎖️ ระดับยศประดับยศ</div>
         <div class="tier-row"><span class="badge t1">🌱 คุณลูกค้า</span><span class="tier-range">1–100 บ.</span></div>
         <div class="tier-row"><span class="badge t2">⭐ พี่ลูกค้า</span><span class="tier-range">101–500 บ.</span></div>
         <div class="tier-row"><span class="badge t3">💰 เสี่ย</span><span class="tier-range">501–1,000 บ.</span></div>
@@ -782,8 +758,8 @@ header {
       </div>
       
       <div class="update-note">
-        <strong>🔄 ความถี่การอัปเดตข้อมูล</strong><br>
-        ยอดการเติมเงินสะสมจะมีการอัปเดตเข้าระบบฐานข้อมูลหลักทุก ๆ 1-2 วัน
+        <strong>🔄 อัปเดตล่าสุด</strong><br>
+        ระบบจะทำการซิงค์และอัปเดตยอดเติมเงินสะสมทุก 1-2 วันครับ
       </div>
     </div>
   </div>
@@ -811,70 +787,67 @@ function crownSVG(type){
   if(type==='gold') {
     return `<svg width="72" height="72" viewBox="0 0 72 72">
       <defs>
-        <radialGradient id="gg" cx="50%" cy="30%">
-          <stop offset="0%" stop-color="#ffe082"/>
-          <stop offset="50%" stop-color="#FFD700"/>
-          <stop offset="100%" stop-color="#ff6f00"/>
-        </radialGradient>
-        <filter id="glowGold">
-          <feGaussianBlur stdDeviation="3" result="blur"/>
-          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        <linearGradient id="glowG" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#fffbeb"/>
+          <stop offset="50%" stop-color="#f59e0b"/>
+          <stop offset="100%" stop-color="#d97706"/>
+        </linearGradient>
+        <filter id="svgGlow1" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#f59e0b" flood-opacity="0.35"/>
         </filter>
       </defs>
-      <circle cx="36" cy="36" r="32" fill="rgba(245, 158, 11, 0.1)" stroke="#FFD700" stroke-width="2" style="filter:url(#glowGold)"/>
-      <polygon points="36,12 21,42 10,28 17,48 55,48 62,28 51,42" fill="url(#gg)" stroke="#d84315" stroke-width="0.8"/>
-      <circle cx="36" cy="12" r="3.5" fill="#fff9c4"/>
-      <circle cx="10" cy="28" r="3" fill="#fff9c4"/>
-      <circle cx="62" cy="28" r="3" fill="#fff9c4"/>
-      <rect x="17" y="46" width="38" height="6" rx="2" fill="url(#gg)" stroke="#d84315" stroke-width="0.6"/>
+      <circle cx="36" cy="36" r="30" fill="#ffffff" stroke="#f59e0b" stroke-width="2" style="filter:url(#svgGlow1)"/>
+      <polygon points="36,15 22,42 12,28 18,48 54,48 60,28 50,42" fill="url(#glowG)" stroke="#b45309" stroke-width="0.8"/>
+      <circle cx="36" cy="15" r="3" fill="#fffbeb"/>
+      <circle cx="12" cy="28" r="2.5" fill="#fffbeb"/>
+      <circle cx="60" cy="28" r="2.5" fill="#fffbeb"/>
+      <rect x="18" y="46" width="36" height="5" rx="1.5" fill="url(#glowG)" stroke="#b45309" stroke-width="0.6"/>
     </svg>`;
   }
   if(type==='silver') {
     return `<svg width="62" height="62" viewBox="0 0 62 62">
       <defs>
-        <radialGradient id="sg" cx="50%" cy="30%">
+        <linearGradient id="glowS" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#ffffff"/>
-          <stop offset="55%" stop-color="#C0C0C0"/>
+          <stop offset="60%" stop-color="#94a3b8"/>
           <stop offset="100%" stop-color="#475569"/>
-        </radialGradient>
-        <filter id="glowSilver">
-          <feGaussianBlur stdDeviation="2" result="blur"/>
-          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </linearGradient>
+        <filter id="svgGlow2" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#64748b" flood-opacity="0.25"/>
         </filter>
       </defs>
-      <circle cx="31" cy="31" r="27" fill="rgba(148, 163, 184, 0.1)" stroke="#cbd5e1" stroke-width="1.5" style="filter:url(#glowSilver)"/>
-      <polygon points="31,11 18,36 8,24 14,41 48,41 54,24 44,36" fill="url(#sg)" stroke="#475569" stroke-width="0.7"/>
-      <circle cx="31" cy="11" r="3" fill="#ffffff"/>
-      <circle cx="8" cy="24" r="2.5" fill="#ffffff"/>
-      <circle cx="54" cy="24" r="2.5" fill="#ffffff"/>
-      <rect x="14" y="39" width="34" height="5" rx="1.5" fill="url(#sg)" stroke="#475569" stroke-width="0.5"/>
+      <circle cx="31" cy="31" r="26" fill="#ffffff" stroke="#94a3b8" stroke-width="2" style="filter:url(#svgGlow2)"/>
+      <polygon points="31,13 19,37 10,25 15,42 47,42 52,25 43,37" fill="url(#glowS)" stroke="#475569" stroke-width="0.7"/>
+      <circle cx="31" cy="13" r="2.5" fill="#ffffff"/>
+      <circle cx="10" cy="25" r="2" fill="#ffffff"/>
+      <circle cx="52" cy="25" r="2" fill="#ffffff"/>
+      <rect x="15" y="40" width="32" height="4" rx="1.2" fill="url(#glowS)" stroke="#475569" stroke-width="0.5"/>
     </svg>`;
   }
   return `<svg width="56" height="56" viewBox="0 0 56 56">
     <defs>
-      <radialGradient id="bg3" cx="50%" cy="30%">
-        <stop offset="0%" stop-color="#ffab91"/>
-        <stop offset="55%" stop-color="#CD7F32"/>
-        <stop offset="100%" stop-color="#5c2500"/>
-      </radialGradient>
-      <filter id="glowBronze">
-        <feGaussianBlur stdDeviation="1.5" result="blur"/>
-        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+      <linearGradient id="glowB" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff7ed"/>
+        <stop offset="60%" stop-color="#ea580c"/>
+        <stop offset="100%" stop-color="#9a3412"/>
+      </linearGradient>
+      <filter id="svgGlow3" x="-10%" y="-10%" width="120%" height="120%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#ea580c" flood-opacity="0.2"/>
       </filter>
     </defs>
-    <circle cx="28" cy="28" r="24" fill="rgba(180, 83, 9, 0.08)" stroke="#cd7f32" stroke-width="1.5" style="filter:url(#glowBronze)"/>
-    <polygon points="28,11 16,33 7,22 12,37 44,37 49,22 40,33" fill="url(#bg3)" stroke="#5c2500" stroke-width="0.7"/>
-    <circle cx="28" cy="11" r="2.5" fill="#ffab91"/>
-    <circle cx="7" cy="22" r="2" fill="#ffab91"/>
-    <circle cx="49" cy="22" r="2" fill="#ffab91"/>
-    <rect x="12" y="35" width="32" height="4.5" rx="1.5" fill="url(#bg3)" stroke="#5c2500" stroke-width="0.5"/>
+    <circle cx="28" cy="28" r="23" fill="#ffffff" stroke="#ea580c" stroke-width="1.5" style="filter:url(#svgGlow3)"/>
+    <polygon points="28,13 17,34 9,23 13,38 43,38 47,23 39,34" fill="url(#glowB)" stroke="#7c2d12" stroke-width="0.6"/>
+    <circle cx="28" cy="13" r="2.2" fill="#fff7ed"/>
+    <circle cx="9" cy="23" r="1.8" fill="#fff7ed"/>
+    <circle cx="47" cy="23" r="1.8" fill="#fff7ed"/>
+    <rect x="13" y="36" width="30" height="3.5" rx="1" fill="url(#glowB)" stroke="#7c2d12" stroke-width="0.4"/>
   </svg>`;
 }
 
 function renderPodium(data){
   const el=document.getElementById('podium');
   if(!data.length){
-    el.innerHTML='<p style="color:rgba(255,255,255,0.5);padding:30px;font-family:\'Kanit\',sans-serif">ยังไม่มีข้อมูลในขณะนี้</p>';
+    el.innerHTML='<p style="color:rgba(255,255,255,0.7);padding:30px;font-family:\'Kanit\',sans-serif">ยังไม่มีข้อมูลในขณะนี้</p>';
     return;
   }
   const slots=[
